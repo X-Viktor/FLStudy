@@ -5,5 +5,6 @@ from users.models import User
 
 
 class UserListView(generics.ListAPIView):
+    """Отображение всех пользователей."""
     queryset = User.objects.all()
     serializer_class = serializers.UserListSerializer
