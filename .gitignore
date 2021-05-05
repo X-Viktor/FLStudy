@@ -3,3 +3,4 @@ __pychache__/
 .idea
 venv
 .env
+.DS_Store
