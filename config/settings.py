@@ -1,5 +1,8 @@
 from pathlib import Path
-import dj_database_url, environ, os
+
+import dj_database_url
+import environ
+import os
 
 env = environ.Env(
     DEBUG=(bool, False)
@@ -34,6 +37,7 @@ INSTALLED_APPS = [
     'djoser',
     'rest_framework',
 
+    'tasks',
     'users',
 ]
 
@@ -53,8 +57,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -6,6 +6,7 @@ from config import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('auth.api.urls')),
+    path('api/tasks/', include('tasks.api.urls')),
     path('api/users/', include('users.api.urls')),
 ]
 
