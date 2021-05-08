@@ -21,11 +21,23 @@ def api_client():
 
 
 @pytest.fixture
-def token(api_client, task):
+def category(api_client):
+    """Пользователь."""
+    return mixer.blend('tasks.Category')
+
+
+@pytest.fixture
+def task(api_client, user):
+    """Задача."""
+    return mixer.blend('tasks.Task', customer=user)
+
+
+@pytest.fixture
+def token(api_client, user):
     """Веб-токен JSON."""
     url = '/api/auth/jwt/create/'
     login_data = {
-        'username': task.customer.username,
+        'username': user.username,
         'password': 'test1234',
     }
     token = api_client.post(url, login_data)

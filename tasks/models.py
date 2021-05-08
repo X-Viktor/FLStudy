@@ -1,7 +1,5 @@
 from django.db import models
 
-from users.models import User
-
 
 class Category(models.Model):
     title = models.CharField(max_length=150, verbose_name='Название')
@@ -42,13 +40,13 @@ class Task(models.Model):
         verbose_name='Статус'
     )
     customer = models.ForeignKey(
-        User,
+        'users.User',
         on_delete=models.CASCADE,
         related_name='tasks_created',
         verbose_name='Заказчик'
     )
     performer = models.ForeignKey(
-        User,
+        'users.User',
         on_delete=models.SET_NULL,
         related_name='tasks_taken',
         blank=True,
